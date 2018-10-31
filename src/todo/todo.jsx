@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+
 import PageHeader from '../template/pageHeader'
+import TodoForm from './todoForm'
+import TodoList from './todoList'
 
 class Todo extends Component {
     constructor(props) {
@@ -10,6 +13,8 @@ class Todo extends Component {
         return (
             <div>
                 <PageHeader name='Tarefas' small='Cadastro'></PageHeader>
+                <TodoForm />
+                <TodoList />
             </div>
         )
     }
