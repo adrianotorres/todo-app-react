@@ -11,6 +11,7 @@ class Todo extends Component {
         this.state = { description: '', list: [], API_URL: 'http://localhost:3003/api/todos' }
         this.handleAddTodo = this.handleAddTodo.bind(this)
         this.handleChangeDescriptionTodo = this.handleChangeDescriptionTodo.bind(this)
+        this.handleRemove = this.handleRemove.bind(this)
         this.refreshList()
     }
     refreshList() {
@@ -25,13 +26,17 @@ class Todo extends Component {
     handleChangeDescriptionTodo(event) {
         this.setState({ ...this.state, description: event.target.value })
     }
+    handleRemove(todo) {
+        axios.delete(`${ this.state.API_URL }/${todo._id}`)
+            .then( () => this.refreshList() )
+    }
     render() {
         return (
             <div>
                 <PageHeader name='Tarefas' small='Cadastro'></PageHeader>
                 <TodoForm handleAdd={ this.handleAddTodo } description={ this.state.description }
                     handleChangeDescription={ this.handleChangeDescriptionTodo } />
-                <TodoList list={ this.state.list } />
+                <TodoList list={ this.state.list } handleRemove={ this.handleRemove } />
             </div>
         )
     }
