@@ -4,3 +4,9 @@
 .marked-as-done {
     text-decoration: line-through
 }
+.todoForm {
+    padding-bottom: 100px;
+}
+.todoActions {
+    width: 105px;
+}

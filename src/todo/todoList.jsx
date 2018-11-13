@@ -30,7 +30,7 @@ export default props => {
                 <thead>
                     <tr>
                         <th>Descrição</th>
-                        <th>Ações</th>
+                        <th className='todoActions'>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
